@@ -9,6 +9,11 @@ Description: >
 Globals:
   Function:
     Timeout: 3
+Parameters:
+  HelloParameter:
+    Type: String
+    Default: 'Hello AWS'
+    Description: 'Just a string of text to see if I can pass parameters to the action script'
 
 Resources:
   HelloWorldFunction:
@@ -39,3 +44,7 @@ Outputs:
   HelloWorldFunctionIamRole:
     Description: "Implicit IAM Role created for Hello World function"
     Value: !GetAtt HelloWorldFunctionRole.Arn
+  HelloMessage:
+    Description: "The message passed from the deploy script"
+    Value:
+      Ref: HelloParameter
